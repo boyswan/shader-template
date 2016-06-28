@@ -25,7 +25,8 @@ module.exports = {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
       new webpack.ProvidePlugin({
-        'Rx': 'rxjs'
+        'Rx': 'rx',
+        'THREE': 'three'
       })
     ],
     module: {

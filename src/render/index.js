@@ -1,4 +1,3 @@
-import THREE from 'three'
 const OrbitControls = require('three-orbit-controls')(THREE)
 
 export const renderer = new THREE.WebGLRenderer({ antialias: true })

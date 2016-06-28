@@ -1,4 +1,3 @@
-import THREE from 'three'
 import { scene } from 'src/render'
 
 const fragmentShader = require('src/visual/shaders/fragment.glsl')
