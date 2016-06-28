@@ -9,9 +9,9 @@ varying vec3 vColor;
 
 void main()	{
 
-	vec4 color = vec4( vColor, mouse.x * 0.001 );
+	vec4 color = vec4( vColor, 0.85 );
 
-	color.r += sin( vPosition.x * 5.0 + time ) * 0.5;
+	color.b += sin( vPosition.x * 5.0 + time ) * 0.5;
 
 	gl_FragColor = color;
 

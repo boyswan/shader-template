@@ -5,14 +5,14 @@ import { mesh } from 'src/visual'
 import { camera, renderer, scene } from 'src/render'
 
 let winX = 0, winY = 0
-
+let count =0
 window.addEventListener('mousemove', e => {
   winX = e.clientX
   winY = e.clientY
 })
 
 const updateLoop = () => {
-
+  // console.log(count)
   const { low, mid, high } = getFreq(frequencyData)
 
   var time = performance.now();
