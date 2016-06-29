@@ -5,7 +5,7 @@
   "author": "Jack Boyce",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "NODE_ENV=development node server",
     "dev": "NODE_ENV=development node server",
     "nodemon": "NODE_ENV=development nodemon --exec node --stage 0 server",
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js"

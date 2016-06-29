@@ -5,7 +5,7 @@ import { pulseValue } from 'helpers/intervals'
 
 const FPS = 1000/60
 
-const mouseMove$ = Rx.Observable.combineLatest(Input.mouseMoveX$, Input.mouseMoveY$)
+const mouseMove$ = Rx.Observable.combineLatest(Input.mouseMoveX$, Input.mouseMoveY$).startWith([])
 const interval$ = Rx.Observable.interval(FPS)
 
 const streams$ = Rx.Observable.combineLatest(
