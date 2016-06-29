@@ -11,9 +11,11 @@ export const curry = (fn, args = []) =>
 
 export const normalize = a => a / 3000
 export const dom = (el, type) => Rx.Observable.fromEvent(el, type);
+export const multiplyMouse = ([ x, y ], inc) => ({ x: x * inc, y: y * inc })
+export const log = (...a) => console.log(a)
 
-export const getFreq = frequencyData => ({
-  low: normalize(frequencyData[0] + frequencyData[1] + frequencyData[2] + frequencyData[3] + frequencyData[4]),
-  mid: normalize(frequencyData[5] + frequencyData[6] + frequencyData[7] + frequencyData[8] + frequencyData[9]),
-  high: normalize(frequencyData[10] + frequencyData[11] + frequencyData[12] + frequencyData[13] + frequencyData[14])
+export const getFreq = fd => ({
+  low: normalize(fd[0] + fd[1] + fd[2] + fd[3] + fd[4]),
+  mid: normalize(fd[5] + fd[6] + fd[7] + fd[8] + fd[9]),
+  high: normalize(fd[10] + fd[11] + fd[12] + fd[13] + fd[14])
 })

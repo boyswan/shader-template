@@ -1,7 +1,7 @@
-import { scene } from 'src/render'
+import { scene } from 'src/scene'
 
-const fragmentShader = require('src/visual/shaders/fragment.glsl')
-const vertexShader = require('src/visual/shaders/vertex.glsl')
+const fragmentShader = require('src/objects/shaders/fragment.glsl')
+const vertexShader = require('src/objects/shaders/vertex.glsl')
 
 const triangles = 1000;
 const tri = triangles * 3 * 3

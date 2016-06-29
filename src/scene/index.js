@@ -13,8 +13,8 @@ camera.position.set( 0, 0, 3 );
 
 export const onWindowResize = () => {
   camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix()
   renderer.setSize( window.innerWidth, window.innerHeight );
+  camera.updateProjectionMatrix()
 }
 
 export const scene = new THREE.Scene()
@@ -28,5 +28,5 @@ scene.add(light)
 export const controls = new OrbitControls( camera );
 
 
-window.addEventListener( 'resize', onWindowResize, false );
+window.addEventListener('resize', onWindowResize, true);
 document.body.appendChild(renderer.domElement)

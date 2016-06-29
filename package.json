@@ -5,10 +5,10 @@
   "author": "Jack Boyce",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=development node server",
+    "start": "NODE_ENV=production node server",
     "dev": "NODE_ENV=development node server",
     "nodemon": "NODE_ENV=development nodemon --exec node --stage 0 server",
-    "build": "webpack --config webpack/webpack.config.prod.js"
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.1",
@@ -33,6 +33,7 @@
     "url": "^0.11.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.9.6",
+    "webpack-config": "^5.1.0",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.7.0",
     "webpack-hot-middleware": "2.9.1"
