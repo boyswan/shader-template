@@ -9,8 +9,10 @@ varying vec3 vColor;
 
 void main()	{
 
-	vec4 color = vec4( vColor, 0.85 );
+	float mouseAverage = (mouse.y * 0.0005) * (mouse.y * 0.0005);
+	vec4 color = vec4( vColor, mouseAverage );
 
+	color.r += mouseAverage * 0.15;
 	color.b += sin( vPosition.x * 5.0 + time ) * 0.5;
 
 	gl_FragColor = color;

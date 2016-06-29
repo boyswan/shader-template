@@ -4,21 +4,21 @@ const fragmentShader = require('src/visual/shaders/fragment.glsl')
 const vertexShader = require('src/visual/shaders/vertex.glsl')
 
 const triangles = 1000;
+const tri = triangles * 3 * 3
 const geometry = new THREE.BufferGeometry();
 
-const vertices = new Float32Array( triangles * 3 * 3 );
-const colors = new Uint8Array( triangles * 3 * 4 );
+const vertices = new Float32Array(tri)
+const colors = new Uint8Array(tri)
 
-for ( let i = 0; i < triangles * 3 * 3; i += 1 ) {
+for ( let i = 0; i < tri; i += 1 ) {
   vertices[i] = Math.random() - 0.5;
-  vertices[i + 1] = Math.random() - 0.5;
-  vertices[i + 2] = Math.random() - 0.5;
+  // vertices[i + 1] = 10 Math.random() - 0.5;
+  // vertices[i + 2] = Math.random() - 0.5;
 }
 
-for ( let i = 0; i < triangles * 3 * 4; i += 1 ) {
-	colors[i] = Math.random() * 255;
-	colors[i + 1] = Math.random() * 255;
-	colors[i + 2] = Math.random() * 255;
+for ( let i = 0; i < tri; i += 9) {
+  colors[i] = 155;
+	// colors[i + 2] = 155;
 }
 
 geometry.addAttribute('position', new THREE.BufferAttribute(vertices, 3));
@@ -38,7 +38,4 @@ const material = new THREE.RawShaderMaterial({
 })
 
 export const mesh = new THREE.Mesh( geometry, material );
-scene.add( mesh );
-// for (let i = 0; i <= 10; i ++ ){
-//   mesh.position.x = i * Math.random)
-// }
+scene.add( mesh )

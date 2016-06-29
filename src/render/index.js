@@ -18,8 +18,8 @@ export const onWindowResize = () => {
 }
 
 export const scene = new THREE.Scene()
-scene.fog = new THREE.FogExp2( 0x76cedc, 0.001 );
-renderer.setClearColor(scene.fog.color);
+// scene.fog = new THREE.FogExp2( '0x76cedc', 0.001 );
+// renderer.setClearColor(scene.fog.color);
 
 const light = new THREE.DirectionalLight(0xffffff)
 light.position.set( 1, 1, 1 )

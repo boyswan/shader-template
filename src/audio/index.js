@@ -1,15 +1,6 @@
-
-
-
-
-// audio.pause()
-// audio.play()
-
-
-
-var ctx = new AudioContext()
-export var analyser = ctx.createAnalyser()
-export var frequencyData = new Uint8Array()
+let ctx = new AudioContext()
+export let analyser = ctx.createAnalyser()
+export let frequencyData = new Uint8Array()
 
 navigator.webkitGetUserMedia({ audio: true },
 

@@ -14,13 +14,13 @@ varying vec3 vColor;
 
 void main()	{
 	vec3 newPos = position;
-	// gl_PointSize = 1.00;
+
 	vColor = color;
 	vPosition = position;
 
-	newPos.x = sin(position.x * (mouse.x * 0.005));
-	newPos.y = sin(position.y * (mouse.y * 0.005));
+	newPos.x = cos(position.x * (mouse.x * 0.005));
+	newPos.y = cos(position.y * (mouse.y * 0.005));
 
-	gl_Position = projectionMatrix * modelViewMatrix * vec4( newPos, 0.75 );
+	gl_Position = projectionMatrix * modelViewMatrix * vec4(newPos, 1.75);
 
 }
