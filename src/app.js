@@ -1,4 +1,4 @@
-import Scene from 'src/objects/scene'
+import Scene from 'src/objects/common/scene'
 import * as Objects from 'src/objects'
 import * as Input from 'helpers/inputs'
 import { pulseValue } from 'helpers/intervals'
@@ -8,7 +8,6 @@ const FPS = 1000/60
 
 const mouseMove$ = Rx.Observable.combineLatest(Input.mouseMoveX$, Input.mouseMoveY$).startWith([])
 const interval$ = Rx.Observable.interval(FPS)
-
 const streams$ = Rx.Observable.combineLatest(
   mouseMove$,
   interval$,
