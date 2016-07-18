@@ -1,4 +1,5 @@
 import { scene } from 'src/scene'
+import { move } from 'src/materials'
 
 const tri = 1000 * 3 * 3
 
@@ -16,17 +17,6 @@ const geometry = new THREE.BufferGeometry();
 geometry.addAttribute('position', new THREE.BufferAttribute(vertices, 3));
 geometry.addAttribute('color', new THREE.BufferAttribute(colors, 3, true));
 
-const material = new THREE.RawShaderMaterial({
-	uniforms: {
-    time: { type: 'f', value: 1.0 },
-    mouse: { type: 'vec2', value: new THREE.Vector2(0, 0) }
-  },
-	vertexShader: require('src/shaders/vertex.glsl'),
-	fragmentShader: require('src/shaders/fragment.glsl'),
-	side: THREE.DoubleSide,
-	transparent: true
-})
-
-const mesh = new THREE.Mesh( geometry, material );
+const mesh = new THREE.Mesh( geometry, move );
 scene.add(mesh)
 export default mesh

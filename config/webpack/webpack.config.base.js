@@ -3,8 +3,9 @@ var path = require('path')
 var WebpackConfig = require('webpack-config').Config
 
 module.exports = new WebpackConfig().merge({
+  entry: ['./src/app.js'],
   resolve: {
-    root: path.join(__dirname, '..'),
+    root: path.join(__dirname, '../../'),
     alias: {
       src: 'src',
       public: 'public',
@@ -22,15 +23,8 @@ module.exports = new WebpackConfig().merge({
     loaders: [
       {
         test: /\.js$|\.jsx$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          plugins: ['transform-runtime']
-        }
-      },
-      {
-        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file-loader?name=[path][name].[ext]'
+        loader: 'babel',
+        exclude: /node_modules/
       },
       { test: /\.(glsl|frag|vert)$/, loader: 'raw', exclude: /node_modules/ },
       { test: /\.(glsl|frag|vert)$/, loader: 'glslify', exclude: /node_modules/ }

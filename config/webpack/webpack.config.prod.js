@@ -4,18 +4,16 @@ var WebpackConfig = require('webpack-config').Config
 var base = path.join(__dirname, '..', 'webpack/webpack.config.base.js')
 
 module.exports = new WebpackConfig().extend(base).merge({
-  debug: true,
-  devtool: 'eval',
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/app.js'
-  ],
   output: {
-    path: path.join(__dirname, '..', 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.min.js'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    })
   ]
 })
