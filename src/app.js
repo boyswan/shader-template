@@ -1,7 +1,8 @@
-import { multiplyMouse, log } from 'helpers/utils'
+import Scene from 'src/objects/scene'
+import * as Objects from 'src/objects'
 import * as Input from 'helpers/inputs'
-import updateLoop  from 'src/update'
 import { pulseValue } from 'helpers/intervals'
+import { multiplyMouse, log } from 'helpers/utils'
 
 const FPS = 1000/60
 
@@ -19,6 +20,10 @@ const streams$ = Rx.Observable.combineLatest(
   })
 )
 
+const App = new Scene()
+App.add(Objects.test)
+
 streams$
+  .do(App.update)
   .sample(FPS, Rx.Scheduler.requestAnimationFrame)
-  .subscribe(updateLoop)
+  .subscribe()
