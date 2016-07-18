@@ -15,6 +15,7 @@ void main()	{
 	color.r += mouseAverage * 0.15;
 	color.b += sin( vPosition.x * 5.0 + time ) * 0.5;
 
+
 	gl_FragColor = color;
 
 }

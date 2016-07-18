@@ -21,6 +21,7 @@ void main()	{
 	newPos.x = cos(position.x * (mouse.x * 0.005));
 	newPos.y = cos(position.y * (mouse.y * 0.005));
 
+
 	gl_Position = projectionMatrix * modelViewMatrix * vec4(newPos, 1.75);
 
 }

@@ -17,7 +17,7 @@ export default ({
   mesh.rotation.x = -rotate;
   mesh.material.uniforms.time.value = interval * 0.1;
 
-  // Update Render & Audio //
+  // Update Render & Audio 
   // analyser.getByteFrequencyData(frequencyData)
   renderer.render(scene, camera)
 }
