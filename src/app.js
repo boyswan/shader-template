@@ -19,6 +19,7 @@ const streams$ = Rx.Observable.combineLatest(
   })
 )
 
+
 streams$
   .sample(FPS, Rx.Scheduler.requestAnimationFrame)
   .subscribe(updateLoop)
