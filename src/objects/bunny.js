@@ -1,7 +1,7 @@
 import bunny from 'bunny'
 import Mesh from 'src/objects/common/mesh'
 import getWireframe from 'src/helpers/getWireframe'
-import material from 'src/materials/wire'
+import material from 'src/materials/move'
 
 export default class Bunny extends Mesh {
 

@@ -8,8 +8,6 @@ const buffer = require('three-buffer-vertex-data');
 
 module.exports = function (complex, opts = {}) {
   const geometry = new THREE.BufferGeometry();
-  const vertices = [];
-  const faces = [];
 
   const edge0 = [];
   const edge1 = [];

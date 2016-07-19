@@ -44,9 +44,9 @@ export default class Scene {
     return light
   }
 
-  add(mesh) {
+  add(mesh, show = true) {
     this.items.push(mesh)
-    this.scene.add(mesh.render())
+    if (show) this.scene.add(mesh.render())
   }
 
   onWindowResize(){

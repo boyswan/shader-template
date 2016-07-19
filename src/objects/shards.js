@@ -18,7 +18,7 @@ export default class Shards extends Mesh {
     this.mesh = new THREE.Mesh(createBufferGeom({
       position: [this.vertices, 3],
       color: [this.colors, 3, true]
-    }), material)
+    }), material())
 
   }
 

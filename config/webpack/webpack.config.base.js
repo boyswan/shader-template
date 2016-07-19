@@ -27,8 +27,15 @@ module.exports = new WebpackConfig().merge({
         exclude: /node_modules/
       },
       { test: /\.json$/, loader: 'json-loader' },
+      { test: /node_modules/, loader: 'ify' },
       { test: /\.(glsl|frag|vert)$/, loader: 'raw', exclude: /node_modules/ },
       { test: /\.(glsl|frag|vert)$/, loader: 'glslify', exclude: /node_modules/ }
+    ],
+    postLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'ify'
+      }
     ]
   }
 })

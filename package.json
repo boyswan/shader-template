@@ -13,7 +13,11 @@
     "bunny": "^1.0.1",
     "glsl-aastep": "^1.0.1",
     "glsl-noise": "0.0.0",
-    "glslify": "^5.1.0",
+    "glsl-checker": "^1.0.1",
+    "glsl-noise": "0.0.0",
+    "glslify": "^5.0.0",
+    "glslify-hex": "^2.0.1",
+    "glslify-fancy-imports": "^1.0.1",
     "interpol-js": "1.0.2",
     "mesh-reindex": "^1.0.0",
     "rx": "4.1.0",
@@ -29,10 +33,22 @@
     "babel-preset-es2015": "6.3.13",
     "babel-preset-stage-2": "6.11.0",
     "glslify-loader": "^1.0.2",
+    "ify-loader": "mattdesl/ify-loader#fix-errors",
     "json-loader": "^0.5.4",
     "raw-loader": "^0.5.1",
     "webpack": "1.12.9",
     "webpack-config": "5.2.1",
     "webpack-dev-server": "1.14.0"
+  },
+  "browserify": {
+    "transform": [
+      "glslify"
+    ]
+  },
+  "glslify": {
+    "transform": [
+      "glslify-fancy-imports",
+      "glslify-hex"
+    ]
   }
 }

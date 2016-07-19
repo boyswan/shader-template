@@ -1,7 +1,7 @@
 export default class Mesh {
 
-  scale(x = 1, y = 1, z = 1) {
-    return this.mesh.scale.set(x, y, z)
+  scale(x = 1) {
+    return this.mesh.scale.set(x, x, x)
   }
 
   position(x = 1, y = 1, z = 1) {

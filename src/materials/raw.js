@@ -1,14 +1,14 @@
 const hmr = require('src/helpers/hmr')
 const cache = hmr.cache(__filename)
 const glslify = require('glslify')
-const vertexShader = glslify('./shaders/move.vert')
-const fragmentShader = glslify('./shaders/move.frag')
+const vertexShader = glslify('./shaders/raw.vert')
+const fragmentShader = glslify('./shaders/raw.frag')
 
 export default () => {
 	const material = new THREE.RawShaderMaterial({
-		uniforms: {
+    uniforms: {
 	    time: { type: 'f', value: 1.0 },
-	    mouse: { type: 'vec2', value: new THREE.Vector2(0, 0) }
+	    pulse: { type: 'vec2', value: new THREE.Vector2(0, 0) }
 	  },
 		vertexShader,
 		fragmentShader,
