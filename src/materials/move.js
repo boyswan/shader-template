@@ -1,4 +1,4 @@
-const move = new THREE.RawShaderMaterial({
+export default new THREE.RawShaderMaterial({
 	uniforms: {
     time: { type: 'f', value: 1.0 },
     mouse: { type: 'vec2', value: new THREE.Vector2(0, 0) }
@@ -6,8 +6,7 @@ const move = new THREE.RawShaderMaterial({
 	vertexShader: require('./shaders/move.vert'),
 	fragmentShader: require('./shaders/move.frag'),
 	side: THREE.DoubleSide,
-	transparent: true
+	transparent: true,
+	// wireframe: true,
+	// wireframeLinewidth: 5
 })
-
-
-export default move

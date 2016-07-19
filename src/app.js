@@ -2,12 +2,16 @@ import Scene from 'src/objects/common/scene'
 import * as Objects from 'src/objects'
 import * as Input from 'helpers/inputs'
 import { pulseValue } from 'helpers/intervals'
-import { multiplyMouse, log } from 'helpers/utils'
+import { multiplyMouse, addMultiple } from 'helpers/utils'
+
+import { shards, bunny, man } from 'src/objects'
+// import Shard from 'src/objects/shards'
 
 const FPS = 1000/60
 
 const mouseMove$ = Rx.Observable.combineLatest(Input.mouseMoveX$, Input.mouseMoveY$).startWith([])
 const interval$ = Rx.Observable.interval(FPS)
+
 const streams$ = Rx.Observable.combineLatest(
   mouseMove$,
   interval$,
@@ -19,10 +23,17 @@ const streams$ = Rx.Observable.combineLatest(
   })
 )
 
-const App = new Scene()
-App.add(Objects.test)
+
+export const App = new Scene()
+
+// App.add(new shards({ input: null }))
+// App.add(new bunny({ input: null }))
+App.add(new man({ input: null }))
+
+// addMultiple(App, Objects)
 
 streams$
+  .delay(150)
   .do(App.update)
   .sample(FPS, Rx.Scheduler.requestAnimationFrame)
   .subscribe()
