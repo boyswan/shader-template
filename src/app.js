@@ -4,7 +4,7 @@ import * as Input from 'helpers/inputs'
 import { pulseValue, lowPulse } from 'helpers/intervals'
 import { multiplyMouse, addMultiple } from 'helpers/utils'
 
-import { shards, bunny, man, raw } from 'src/objects'
+import { shards, man, raw } from 'src/objects'
 // import Shard from 'src/objects/shards'
 
 const FPS = 1000/60
@@ -28,7 +28,6 @@ const streams$ = Rx.Observable.combineLatest(
 export const App = new Scene()
 
 // App.add(new shards())
-// App.add(new bunny())
 // App.add(new raw())
 App.add(new man(), false)
 

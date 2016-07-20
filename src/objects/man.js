@@ -3,7 +3,7 @@ import Mesh from 'src/objects/common/mesh'
 import getWireframe from 'src/helpers/getWireframe'
 import material from 'src/materials/wire'
 import { App } from 'src/app'
-import { vecToArr } from 'src/helpers/utils'
+import { vecToArr, loadJson } from 'src/helpers/utils'
 
 
 export default class Man extends Mesh {
@@ -11,7 +11,7 @@ export default class Man extends Mesh {
   constructor() {
     super()
 
-    new THREE.JSONLoader().load('/public/assets/skull.js', geo => {
+    loadJson('skull', geo => {
       this.geometry = getWireframe(vecToArr(geo))
       // this.colors = new Float32Array( 100 * 3 * 3);
       // this.geometry.addAttribute( 'color', new THREE.BufferAttribute(this.colors, 3));

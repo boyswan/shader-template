@@ -16,6 +16,7 @@ export const getFreq = fd => ({
 export const push = (arr, vert, w) => arr.push([ vert[0], vert[1], vert[2], w ])
 export const addMultiple = (scene, obj) => Object.values(obj).forEach(object => scene.add(new object()))
 
+export const loadJson = (name, cb) => new THREE.JSONLoader().load(`/public/assets/${name}.js`, x => cb(x))
 export const createBufferGeom = (obj, geometry = new THREE.BufferGeometry()) =>
   (Object.entries(obj).forEach(([key, val]) =>
     geometry.addAttribute(key, new THREE.BufferAttribute(...val))
