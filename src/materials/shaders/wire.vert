@@ -12,16 +12,10 @@ uniform float mouse;
 
 #pragma glslify: noise = require('glsl-noise/simplex/3d');
 
-float triangleArea (vec3 a, vec3 b, vec3 c) {
-  vec3 t0 = b - a;
-  vec3 t1 = c - a;
-  return 0.5 * length(cross(t0, t1));
-}
-
 void main() {
-  float swizz = edge0.w;
-  vec4 offset = vec4(0.0);
-  float anim = sin(time * 0.01);
+  float swizz = edge1.x * 100.;
+  vec4 offset = vec4(0.1);
+  float anim = sin(time * 000.1);
   float scale = 1.0;
   float n = mouse;
 
@@ -45,13 +39,15 @@ void main() {
   if (swizz < 0.1) {
     dist = vec3(h, 0.0, 0.0);
     edges = vec3(1.0, 0.0, 0.0);
-  } else if (swizz < 1.1) {
+  }
+  else if (swizz < 1.1) {
     dist = vec3(0.0, h, 0.0);
     edges = vec3(0.0, 1.0, 0.0);
-  } else  {
-    dist = vec3(0.0, 0.0, h);
-    edges = vec3(0.0, 0.0, 1.0);
   }
+  // else  {
+  //   dist = vec3(0.0, 0.0, h);
+  //   edges = vec3(0.0, 0.0, 1.0);
+  // }
 
-  dist *= gl_Position.w;
+  dist *= gl_Position.x;
 }

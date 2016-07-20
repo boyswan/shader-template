@@ -11,16 +11,16 @@ uniform bool useAttenuation;
 
 uniform vec3 colorA;
 uniform vec3 colorB;
-
-#pragma glslify: aastep = require('glsl-aastep');
-#pragma glslify: noise = require('glsl-noise/simplex/4d');
-#pragma glslify: srcOver = require('./glsl-src-over');
+//
+// #pragma glslify: aastep = require('glsl-aastep');
+// #pragma glslify: noise = require('glsl-noise/simplex/4d');
+// #pragma glslify: srcOver = require('./glsl-src-over');
 
 void main()
 {
   float r = length(edges.xyz - 0.5);
 
-  float scale = 1.0 / thickness;
+  float scale = 2.0 / thickness;
   if (!useAttenuation) {
     scale *= gl_FragCoord.w;
   }
@@ -32,14 +32,11 @@ void main()
   float minDist = min(dist_vec.x, min(dist_vec.y, dist_vec.z));
   float d = exp2(-2.0 * minDist * minDist);
 
-  d = minDist;
+  // d = minDist;
 
-  float rsp = repeatSpacing;
-  d = mod(d, rsp) - 0.5 * rsp;
-  d = aastep(0.5, exp(-2.0 * d * d));
-
-  vec3 white = vec3(1.0);
-  vec3 color = mix(colorA, colorB, edges.y);
+  // float rsp = repeatSpacing;
+  // d = mod(d, rsp) - 0.5 * rsp;
+  // d = aastep(0.5, exp(-2.0 * d * d));
 
   gl_FragColor = vec4(mix(colorA, colorB, d), 1.0);
 }

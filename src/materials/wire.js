@@ -11,8 +11,8 @@ export default () => {
       time: { type: 'f', value: 0 },
       thickness: { type: 'f', value: 1 },
       repeatSpacing: { type: 'f', value: 7 },
-      colorA: { type: 'c', value: new THREE.Color('#dde0ee') },
-      colorB: { type: 'c', value: new THREE.Color('#000fff') },
+      colorA: { type: 'c', value: new THREE.Color(0x76cedc) },
+      colorB: { type: 'c', value: new THREE.Color('#ffffff') },
       useAttenuation: { type: 'i', value: true },
       mouse: { type: 'f', value: 0.1 }
     },
@@ -23,7 +23,7 @@ export default () => {
     extensions: {
       derivatives: true
     },
-    wireframe: true,
+    wireframe: false,
     vertexShader: require('./shaders/wire.vert'),
     fragmentShader: require('./shaders/wire.frag')
   })

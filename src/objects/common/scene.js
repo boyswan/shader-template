@@ -40,7 +40,7 @@ export default class Scene {
   getLight () {
     const light = new THREE.DirectionalLight('#ffffff')
     light.position.set(1, 1, 1)
-    this.scene.add(light)
+    // this.scene.add(light)
     return light
   }
 
