@@ -3,7 +3,7 @@ import material from 'src/materials/move'
 import { createBufferGeom } from 'src/helpers/utils'
 
 export default class Shards extends Mesh {
-  constructor({ input }) {
+  constructor() {
     super()
 
     // console.log(input)

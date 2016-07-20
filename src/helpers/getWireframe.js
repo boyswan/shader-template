@@ -1,12 +1,10 @@
-import { createBufferGeom } from './utils'
+import { createBufferGeom, push } from './utils'
 const unindex = require('unindex-mesh');
 const reindex = require('mesh-reindex');
 const buffer = require('three-buffer-vertex-data');
-// const glslify = require('glslify');
-// const vertexShader = glslify('src/materials/shaders/wire.vert');
-// const fragmentShader = glslify('src/materials/shaders/wire.frag');
 
-module.exports = function (complex, opts = {}) {
+export default (complex, opts = {}) => {
+
   const geometry = new THREE.BufferGeometry();
 
   const edge0 = [];
@@ -16,7 +14,9 @@ module.exports = function (complex, opts = {}) {
   const newComplex = reindex(unindex(complex.positions, complex.cells));
   const positions = newComplex.positions;
 
+
   newComplex.cells.forEach(face => {
+
     const a = positions[face[0]];
     const b = positions[face[1]];
     const c = positions[face[2]];
@@ -50,7 +50,4 @@ module.exports = function (complex, opts = {}) {
 
   return geometry;
 
-  function push(arr, vert, w) {
-    arr.push([ vert[0], vert[1], vert[2], w ]);
-  }
 };

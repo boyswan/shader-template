@@ -13,8 +13,21 @@ export const getFreq = fd => ({
   high: normalize(fd[10] + fd[11] + fd[12] + fd[13] + fd[14])
 })
 
+export const push = (arr, vert, w) => arr.push([ vert[0], vert[1], vert[2], w ])
 export const addMultiple = (scene, obj) => Object.values(obj).forEach(object => scene.add(new object()))
+
 export const createBufferGeom = (obj, geometry = new THREE.BufferGeometry()) =>
   (Object.entries(obj).forEach(([key, val]) =>
     geometry.addAttribute(key, new THREE.BufferAttribute(...val))
   ), geometry);
+
+export const vecToArr = ({ vertices, faces }) => {
+  const vert = []
+  const face = []
+  vertices.forEach(({ x, y, z }, i) => vert.push([ x, y, z ]))
+  faces.forEach(({ a, b, c }, i) => face.push([ a, b, c ]))
+  return {
+    positions: vert,
+    cells: face
+  }
+}

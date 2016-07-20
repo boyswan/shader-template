@@ -27,9 +27,10 @@ const streams$ = Rx.Observable.combineLatest(
 
 export const App = new Scene()
 
-// App.add(new shards({ input: null }))
-// App.add(new bunny({ input: null }))
-App.add(new raw({ input: null }))
+// App.add(new shards())
+// App.add(new bunny())
+// App.add(new raw())
+App.add(new man(), false)
 
 // addMultiple(App, Objects)
 

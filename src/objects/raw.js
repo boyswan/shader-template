@@ -2,8 +2,8 @@ import Mesh from 'src/objects/common/mesh'
 import material from 'src/materials/raw'
 import { createBufferGeom } from 'src/helpers/utils'
 
-export default class Shards extends Mesh {
-  constructor({ input }) {
+export default class Raw extends Mesh {
+  constructor() {
     super()
     this.geometry = new THREE.BufferGeometry();
 
@@ -18,6 +18,7 @@ export default class Shards extends Mesh {
     this.color = new THREE.Color();
     this.scales = 5;
     this.size = 5;
+
     var x, y, z;
 
     for ( var i = 0, l = this.NUM_TRIANGLES * 3; i < l; i ++ ) {
@@ -58,6 +59,14 @@ export default class Shards extends Mesh {
     this.geometry.addAttribute( 'color', new THREE.BufferAttribute( this.colors, 3 ) );
     this.geometry.addAttribute( 'uv', new THREE.BufferAttribute( this.uvs, 2 ) );
 
+    // console.log(this.geometry)
+    // this.geometry = createBufferGeom({
+    //   position: [this.positions, 3],
+    //   normal: [this.normals, 3],
+    //   color: [this.colors, 4],
+    //   uv: [this.uvs, 2]
+    // })
+
     // optional
     this.geometry.computeBoundingBox();
     this.geometry.computeBoundingSphere();
@@ -70,7 +79,7 @@ export default class Shards extends Mesh {
 
   update({ interval, lowPulse, rotate }) {
     // this.rotate(-rotate, rotate)
-    // this.scale(lowPulse * 0.001, lowPulse * 0.001)
+    this.scale(lowPulse * 0.001, lowPulse * 0.001)
     this.uniforms().pulse.value.set(lowPulse, lowPulse)
     this.uniforms().time.value = interval * 0.1;
   }
