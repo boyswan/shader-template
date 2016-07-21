@@ -1,10 +1,11 @@
-import Scene from 'src/objects/common/scene'
-import * as Objects from 'src/objects'
+import 'index.html';
+import Scene from 'objects/common/scene'
+import * as Objects from 'objects'
 import * as Input from 'helpers/inputs'
 import { pulseValue, lowPulse } from 'helpers/intervals'
 import { multiplyMouse, addMultiple } from 'helpers/utils'
 
-import { shards, man, raw } from 'src/objects'
+import { shards, man, raw } from 'objects'
 // import Shard from 'src/objects/shards'
 
 const FPS = 1000/60

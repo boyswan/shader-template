@@ -1,16 +1,15 @@
 {
-  "name": "web-audio",
+  "name": "webgl",
   "version": "0.0.0",
   "repository": " ",
   "author": "Jack Boyce",
   "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --port 3000 --config config/webpack/webpack.config.dev.js --devtool eval --progress --hot --inline",
+    "start": "webpack-dev-server --port 3000 --config config/webpack/webpack.config.dev.js --devtool eval --progress --hot --inline",
     "build": "webpack --config config/webpack/webpack.config.prod.js",
     "build:gh": "npm run build && ./config/git-gh.sh"
   },
   "dependencies": {
-    "bunny": "^1.0.1",
     "global": "^4.3.0",
     "glsl-aastep": "^1.0.1",
     "glsl-checker": "^1.0.1",
@@ -19,6 +18,8 @@
     "glslify-fancy-imports": "^1.0.1",
     "glslify-hex": "^2.0.1",
     "interpol-js": "1.0.2",
+    "leapjs": "^0.6.4",
+    "leapjs-plugins": "^0.1.11",
     "mesh-reindex": "^1.0.0",
     "rx": "4.1.0",
     "three": "0.77.0",
@@ -31,14 +32,15 @@
     "babel-loader": "6.2.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-preset-es2015": "6.3.13",
+    "babel-preset-es2015-native-modules": "^6.6.0",
     "babel-preset-stage-2": "6.11.0",
+    "file-loader": "^0.9.0",
     "glslify-loader": "^1.0.2",
     "ify-loader": "mattdesl/ify-loader#fix-errors",
-    "json-loader": "^0.5.4",
     "raw-loader": "^0.5.1",
-    "webpack": "1.12.9",
+    "webpack": "2.1.0-beta.4",
     "webpack-config": "5.2.1",
-    "webpack-dev-server": "1.14.0"
+    "webpack-dev-server": "2.0.0-beta"
   },
   "browserify": {
     "transform": [

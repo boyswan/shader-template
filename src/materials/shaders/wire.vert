@@ -15,7 +15,7 @@ uniform float mouse;
 void main() {
   float swizz = edge1.x * 100.;
   vec4 offset = vec4(0.1);
-  float anim = sin(time * 000.1);
+  float anim = sin(time * 0.1);
   float scale = 1.0;
   float n = mouse;
 

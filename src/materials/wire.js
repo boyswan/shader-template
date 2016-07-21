@@ -1,4 +1,4 @@
-const hmr = require('src/helpers/hmr')
+const hmr = require('helpers/hmr')
 const cache = hmr.cache(__filename)
 const glslify = require('glslify')
 const vertexShader = glslify('./shaders/wire.vert')
@@ -23,7 +23,7 @@ export default () => {
     extensions: {
       derivatives: true
     },
-    wireframe: false,
+    wireframe: true,
     vertexShader: require('./shaders/wire.vert'),
     fragmentShader: require('./shaders/wire.frag')
   })

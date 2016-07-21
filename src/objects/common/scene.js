@@ -1,5 +1,5 @@
 const OrbitControls = require('three-orbit-controls')(THREE)
-import material from 'src/materials/wire'
+import material from 'materials/wire'
 
 export default class Scene {
   constructor() {

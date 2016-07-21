@@ -5,15 +5,27 @@ var base = path.join(__dirname, '..', 'webpack/webpack.config.base.js')
 
 module.exports = new WebpackConfig().extend(base).merge({
   output: {
+    path: path.join(__dirname, './../../public'),
     filename: 'bundle.min.js'
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor',
+    //   minChunks: Infinity,
+    //   filename: 'vendor.bundle.js'
+    // }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.optimize.UglifyJsPlugin({
-      compressor: {
+      compress: {
         warnings: false
-      }
+      },
+      output: {
+        comments: false
+      },
+      sourceMap: false
     })
-  ]
+  ],
 })

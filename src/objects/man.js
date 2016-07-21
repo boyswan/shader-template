@@ -1,9 +1,9 @@
 import bunny from 'bunny'
-import Mesh from 'src/objects/common/mesh'
-import getWireframe from 'src/helpers/getWireframe'
-import material from 'src/materials/wire'
-import { App } from 'src/app'
-import { vecToArr, loadJson } from 'src/helpers/utils'
+import Mesh from 'objects/common/mesh'
+import getWireframe from 'helpers/getWireframe'
+import material from 'materials/wire'
+import { App } from 'app'
+import { vecToArr, loadJson } from 'helpers/utils'
 
 
 export default class Man extends Mesh {

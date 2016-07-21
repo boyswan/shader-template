@@ -1,6 +1,6 @@
-import Mesh from 'src/objects/common/mesh'
-import material from 'src/materials/move'
-import { createBufferGeom } from 'src/helpers/utils'
+import Mesh from 'objects/common/mesh'
+import material from 'materials/move'
+import { createBufferGeom } from 'helpers/utils'
 
 export default class Shards extends Mesh {
   constructor() {
