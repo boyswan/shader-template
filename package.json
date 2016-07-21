@@ -5,7 +5,7 @@
   "author": "Jack Boyce",
   "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server --port 3000 --config config/webpack/webpack.config.dev.js --devtool eval --progress --hot --inline",
+    "start": "./node_modules/.bin/webpack-dev-server --config config/webpack/webpack.config.dev.js --history-api-fallback --progress --port 3000",
     "build": "webpack --config config/webpack/webpack.config.prod.js",
     "build:gh": "npm run build && ./config/git-gh.sh"
   },

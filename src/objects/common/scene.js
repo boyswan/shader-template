@@ -33,14 +33,14 @@ export default class Scene {
 
   getCamera() {
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000)
-    camera.position.set(0, 0, 3)
+    camera.position.set(0, 0, 20)
     return camera
   }
 
   getLight () {
     const light = new THREE.DirectionalLight('#ffffff')
     light.position.set(1, 1, 1)
-    // this.scene.add(light)
+    this.scene.add(light)
     return light
   }
 

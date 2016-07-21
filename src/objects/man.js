@@ -3,7 +3,7 @@ import Mesh from 'objects/common/mesh'
 import getWireframe from 'helpers/getWireframe'
 import material from 'materials/wire'
 import { App } from 'app'
-import { vecToArr, loadJson } from 'helpers/utils'
+import { vecToArr, loadJson, clamp } from 'helpers/utils'
 
 
 export default class Man extends Mesh {
@@ -11,25 +11,27 @@ export default class Man extends Mesh {
   constructor() {
     super()
 
-    loadJson('skull', geo => {
-      this.geometry = getWireframe(vecToArr(geo))
+    loadJson('man', geo => {
+      // this.geometry = getWireframe(vecToArr(geo))
+      this.geometry = geo
 
-      // this.colors = new Float32Array( 100 * 3 * 3);
-      // for ( let i = 0; i < this.tri; i += 9) { this.colors[i] = 155 }
-      //
-      // this.geometry.addAttribute( 'color', new THREE.BufferAttribute(this.colors, 3));
+      const mat = new THREE.MeshLambertMaterial( { color: '#000fff', wireframe: false, shading: THREE.SmoothShading } )
 
-
-      this.mesh = new THREE.Mesh(this.geometry, material());
+      this.mesh = new THREE.Mesh(this.geometry, mat);
       this.mesh.translation = this.geometry.center();
       App.scene.add(this.mesh)
     })
 
+
   }
 
-  update({ interval, pulseValue, rotate, lowPulse, mouse: { x, y } }) {
-    this.rotate(0, interval * 0.005 , 0)
-    this.scale(0.2)
-    this.uniforms().mouse.value = (x * y) * 0.000001
+  update({
+    interval,
+    leap: {
+      translateHand: { x, y, z }
+    }
+  }) {
+    this.rotate(-y, x, 0 )
+    // this.uniforms().mouse.value = y * 0.01
   }
 }
